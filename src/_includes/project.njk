@@ -1,0 +1,27 @@
+---
+layout: base
+---
+
+<article class="region flow">
+  {% if featuredImage %}
+    <img 
+      src="{{ featuredImage }}" 
+      alt="{{ featuredImageAlt or title }}"
+      class="featured-image"
+    />
+  {% endif %}
+
+  <h1>{{ title }}</h1>
+  
+  {% if description %}
+    <p class="description">{{ description }}</p>
+  {% endif %}
+
+  <div class="content flow">
+    {{ content | safe }}
+  </div>
+
+  {% if link %}
+    <a href="{{ link }}" class="button">View Project</a>
+  {% endif %}
+</article>

@@ -285,6 +285,45 @@
       display: none;
     }
   }
+
+  /* Featured Images */
+  .featured-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  /* Card Styles */
+  .card {
+    background: color-mix(in oklab, var(--color-bg) 95%, var(--color-text));
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+  }
+
+  .card-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: var(--space-s);
+  }
+
+  /* Grid List */
+  .grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: var(--gutter);
+  }
 }
 
 @layer compositions {
@@ -368,5 +407,19 @@
     position: absolute;
     width: 1px;
     white-space: nowrap;
+  }
+
+  .button {
+    display: inline-block;
+    padding: var(--space-2xs) var(--space-s);
+    background-color: var(--color-highlight);
+    color: var(--color-bg);
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: opacity 0.2s ease;
+  }
+
+  .button:hover {
+    opacity: 0.9;
   }
 }

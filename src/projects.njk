@@ -1,0 +1,28 @@
+---
+layout: base
+title: Projects
+---
+
+<article class="region flow">
+  <h1>{{ title }}</h1>
+
+  <ul role="list" class="grid-list">
+  {%- for project in collections.projects -%}
+    <li>
+      <article class="card flow" style="--flow-space: 0.5em">
+        {% if project.data.featuredImage %}
+          <img 
+            src="{{ project.data.featuredImage }}" 
+            alt="{{ project.data.featuredImageAlt or project.data.title }}"
+            class="card-image"
+          />
+        {% endif %}
+        <div class="card-content flow">
+          <h2><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
+          <p>{{ project.data.description }}</p>
+        </div>
+      </article>
+    </li>
+  {%- endfor -%}
+  </ul>
+</article>

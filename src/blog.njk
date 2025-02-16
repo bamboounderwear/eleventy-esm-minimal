@@ -1,0 +1,29 @@
+---
+layout: base
+title: Blog
+---
+
+<article class="region flow">
+  <h1>{{ title }}</h1>
+
+  <ul role="list" class="grid-list">
+  {%- for post in collections.posts | reverse -%}
+    <li>
+      <article class="card flow" style="--flow-space: 0.5em">
+        {% if post.data.featuredImage %}
+          <img 
+            src="{{ post.data.featuredImage }}" 
+            alt="{{ post.data.featuredImageAlt or post.data.title }}"
+            class="card-image"
+          />
+        {% endif %}
+        <div class="card-content flow">
+          <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+          <p>{{ post.data.description }}</p>
+          <time datetime="{{ post.date | w3DateFilter }}">{{ post.date | dateFilter }}</time>
+        </div>
+      </article>
+    </li>
+  {%- endfor -%}
+  </ul>
+</article>
